@@ -51,8 +51,8 @@ router.get('/google', passport.authenticate('google', { scope: ['profile', 'emai
 // Google Authentication Route
 router.get('/google/callback', passport.authenticate("google",
 {
-    successRedirect:"http://localhost:3000/auth/google/callback",
-    failureRedirect:"http://localhost:3000/login"
+    successRedirect:`${process.env.CLIENT_URL}/auth/google/callback`,
+    failureRedirect:`${process.env.CLIENT_URL}/login`
 }));
 
 router.get("/login/success", (req,res)=>
